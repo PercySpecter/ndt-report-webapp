@@ -1,15 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NDT Report Repository</title>
-  </head>
-  <body>
-    <form>
-      <button id='upload'>Upload New Report</button>
-      <button id='query'>Search Report</button>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Report</title>
+
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="table/vendor/bootstrap/css/bootstrap.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="table/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="table/vendor/animate/animate.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="table/vendor/select2/select2.min.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="table/vendor/perfect-scrollbar/perfect-scrollbar.css">
+  <!--===============================================================================================-->
+  <link rel="stylesheet" type="text/css" href="table/css/util.css">
+  <link rel="stylesheet" type="text/css" href="table/css/main.css">
+  <!--===============================================================================================-->
+
+  <link rel="stylesheet" href="stylesheets/index.css">
+</head>
+
+<body>
+  <ul class="navbar">
+    <li class="navbar-link" style="float: left; font-size:larger; font-weight: bolder;"><a href="">NDT Report Repository</a></li>
+    <li class="navbar-link"><a href="upload.html">Upload New Report</a></li>
+  </ul>
+
+  <div class="container">
+
+    <form class="form" id="query-form">
+      <select id="station" name="station">
+        <option value="-1" selected>Station...</option>
+        <option value="bbgs">BBGS</option>
+        <option value="sgs">SGS</option>
+      </select>
+      <select id="unit" name="unit">
+        <option value='-1' selected>Unit...</option>
+      </select>
+      <select id="year" name="year">
+        <option value='-1' selected>Year...</option>
+      </select>
+      <select id="category" name="category">
+        <option value="-1" selected>Category...</option>
+        <option value="0">Survey</option>
+        <option value="1">Breakdown</option>
+        <option value="2">Preventive Maintenance</option>
+      </select>
+      <input id="query-button" type="submit" value="Query Report">
     </form>
-  </body>
-  <script src="scripts/index.js"></script>
+    <div id="result-container">
+      <div class="limiter">
+        <div class="container-table100">
+          <div class="wrap-table100">
+            <div class="table100 ver1 m-b-110">
+              <div class="table100-head">
+                <table>
+                  <thead>
+                    <tr class="row100 head">
+                      <th class="cell100 column1">Station</th>
+                      <th class="cell100 column2">Unit #</th>
+                      <th class="cell100 column3">Financial Year</th>
+                      <th class="cell100 column4">Category</th>
+                      <th class="cell100 column5">Actions</th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+              <div class="table100-body js-pscroll">
+                <table>
+                  <tbody id="result">
+                    
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<script src="scripts/env.json"></script>
+<script src="scripts/index.js"></script>
+
 </html>
