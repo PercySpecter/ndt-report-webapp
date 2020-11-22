@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search Report</title>
+  <link rel="stylesheet" href="stylesheets/query.css">
+</head>
+
+<body>
+  <form id="query-form">
+    <select id="station" name="station">
+      <option value="-1" selected>Station...</option>
+      <option value="bbgs">BBGS</option>
+      <option value="sgs">SGS</option>
+    </select>
+    <select id="unit" name="unit">
+      <option value='-1' selected>Unit...</option>
+    </select>
+    <select id="year" name="year">
+      <option value='-1' selected>Year...</option>
+    </select>
+    <select id="category" name="category">
+      <option value="-1" selected>Category...</option>
+      <option value="0">Survey</option>
+      <option value="1">Breakdown</option>
+      <option value="2">Preventive Maintenance</option>
+    </select>
+    <input id="query-button" type="submit" value="Query Report">
+  </form>
+  <div id="result-container">
+    <table id="result">
+
+    </table>
+  </div>
+</body>
+<script src="scripts/env.json"></script>
+<script src="scripts/query.js"></script>
+
+</html>

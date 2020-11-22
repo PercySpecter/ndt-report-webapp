@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Report</title>
+  </head>
+  <body>
+    <form id='upload-form' name='upload-form'  method="POST" enctype="multipart/form-data">
+      <select id="station" name="station">
+        <option value="-1" selected>Station...</option>
+        <option value="bbgs">BBGS</option>
+        <option value="sgs">SGS</option>
+      </select>
+      <select id="unit" name="unit">
+        <option value='-1' selected>Unit...</option>
+      </select>
+      <select id="year" name="year">
+        
+      </select>
+      <select id="category" name="category">
+        <option value="-1" selected>Category...</option>
+        <option value="0">Survey</option>
+        <option value="1">Breakdown</option>
+        <option value="2">Preventive Maintenance</option>
+      </select>
+      <input type="file" name="report">
+      <input type="hidden" id="callback" name="callback" value="">
+      <input type="submit" value="Upload Report">
+      </form>
+  </body>
+  <script src="scripts/env.json"></script>
+  <script src="scripts/upload.js"></script>
+</html>
