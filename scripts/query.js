@@ -62,6 +62,24 @@ const initializeForm = () => {
   });
 };
 
+const deleteReportFile = async (dir, file) => {
+  console.log(dir + " " + file);
+  try {
+    let queryResult = await fetch(`${env.api_root_url}/api/delete-report/${dir}/${file}`, {
+      method: 'DELETE',
+      headers: {
+        "Content-type": "application/json; charset=UTF-8"
+      }
+    });
+    result = await queryResult.json();
+    status = await queryResult.status;
+    console.log(result);
+
+  } catch (e) {
+    console.log(e);
+  }
+};
+
 const displayResult = (reports) => {
   const CATEGORY = ["Survey", "Breakdown", "Preventive Maintenance"];
   let resTable = `
@@ -78,7 +96,13 @@ const displayResult = (reports) => {
 
     let currReportItems = "";
     report[1].forEach(file => {
-      currReportItems += `<li> <a href="${env.api_root_url + "/api/view-report/" + report[0] + "/" + file}" target="_blank">${file}</a> </li>`;
+      currReportItems += `
+        <li>
+          ${file} &nbsp
+          <a href="${env.api_root_url + "/api/view-report/" + report[0] + "/" + file}" target="_blank">View</a> &nbsp
+          <a onclick="deleteReportFile('${report[0]}', '${file}');" href="">Delete</a>
+        </li>
+      `;
     });
 
     let currReport = report[0].split("_");
@@ -91,12 +115,11 @@ const displayResult = (reports) => {
         <td>
           <ul>
             ${currReportItems}
-          <ul>
+          </ul>
         </td>
       </tr>
     `;
 
-    row = "<tr>" + row + "</tr>";
     resTable += row;
   });
 
