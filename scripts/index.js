@@ -1,10 +1,11 @@
 const openUploadWindow = () => {
   const parentWindow = window.self;
-  let uploadWindow = window.open("upload.html", "_blank", "toolbar=no,scrollbars=yes,resizable=yes,top=300,left=500,width=500,height=500");
-  uploadWindow.addEventListener('unload', (e) => {
-    console.log("helllllllllooooooooo");
-    parentWindow.location.reload();
-  })
+  const posVertical = Math.floor(window.innerHeight / 4);
+  const posHorizontal = Math.floor(window.innerWidth / 4);
+  const width = 2 * posHorizontal;
+  const height = 2 * posVertical;
+  let uploadWindow = window.open("upload.html", "_blank", 
+          `toolbar=no,scrollbars=yes,resizable=yes,top=${posVertical},left=${posHorizontal},width=${width},height=${height}`);
 };
 
 const toFinancialYear = (currYear) => {
@@ -39,7 +40,7 @@ const getUnitOptions = (station) => {
 
   let list = "<option value='-1' selected>Unit...</option> \n";
   for (let currUnit = 1; currUnit <= numberOfUnits; currUnit++) {
-    let currOption = `<option value="${currUnit}">${currUnit}</options>`;
+    let currOption = `<option value="${currUnit}">#${currUnit}</options>`;
     list += currOption + "\n";
   }
   console.log(list);

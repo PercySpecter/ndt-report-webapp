@@ -26,12 +26,13 @@ body {
 }
 
 .navbar-link {
-  border-radius:1rem;
+  border-radius: 1rem;
   float: right;
 }
 
 .navbar-link a {
-  border-radius:1rem;
+  font-size:larger;
+  border-radius: 1rem;
   display: block;
   color: white;
   text-align: center;

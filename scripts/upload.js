@@ -25,7 +25,7 @@ const getUnitOptions = (station) => {
 
   let list = "";
   for (let currUnit = 1; currUnit <= numberOfUnits; currUnit++) {
-    let currOption = `<option value="${currUnit}">${currUnit}</options>`;
+    let currOption = `<option value="${currUnit}">#${currUnit}</options>`;
     list += currOption + "\n";
   }
   console.log(list);

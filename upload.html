@@ -3,9 +3,11 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stylesheets/upload.css">
     <title>Upload Report</title>
   </head>
   <body>
+    <h2>Upload New Report</h2>
     <form id='upload-form' name='upload-form'  method="POST" enctype="multipart/form-data">
       <select id="station" name="station" required>
         <option value="bbgs">BBGS</option>
@@ -13,7 +15,7 @@
       </select>
       <br>
       <select id="unit" name="unit" required>
-
+        <option value="1">#1</option>
       </select>
       <br>
       <select id="year" name="year" required>
@@ -26,11 +28,11 @@
         <option value="2">Preventive Maintenance</option>
       </select>
       <br>
-      <input type="text" name="report_name" placeholder="Report Name" required>
+      <input type="text" name="report_name" placeholder="Report Name to Display" required>
       <input type="file" name="report" required>
       <input type="hidden" id="callback" name="callback" value="">
       <br>
-      <input type="submit" value="Upload Report">
+      <input class="form-button" type="submit" value="Upload Report">
       </form>
   </body>
   <script src="scripts/env.json"></script>

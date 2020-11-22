@@ -22,12 +22,13 @@
   <!--===============================================================================================-->
 
   <link rel="stylesheet" href="stylesheets/index.css">
+  <link rel="stylesheet" href="stylesheets/common.css">
 </head>
 
 <body>
   <ul class="navbar">
-    <li class="navbar-link" style="float: left; font-size:larger; font-weight: bolder;"><a href="">NDT Report Repository</a></li>
-    <li class="navbar-link"><a onclick="openUploadWindow();" href="">Upload New Report</a></li>
+    <li class="navbar-link" style="float: left; font-weight: bolder; font;"><a href="">NDT Report Repository</a></li>
+    <li class="navbar-link"><a onclick="openUploadWindow();" style="background-color: blue;" href="">Upload New Report</a></li>
   </ul>
 
   <div class="container">
@@ -50,8 +51,8 @@
         <option value="1">Breakdown</option>
         <option value="2">Preventive Maintenance</option>
       </select>
-      <input id="query-button" type="submit" value="Search">
-      <input id="reset-button" type="button" value="Clear Filters">
+      <input class="form-button" id="query-button" type="submit" value="Search">
+      <input class="form-button" id="reset-button" type="button" value="Clear Filters">
     </form>
     <div id="result-container">
       <div class="limiter">
