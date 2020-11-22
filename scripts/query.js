@@ -76,15 +76,23 @@ const displayResult = (reports) => {
   reports.forEach(report => {
     let row = "";
 
-    let currReport = report.split("_");
-    currReport[3] = "" + currReport[3].charAt(0);
+    let currReportItems = "";
+    report[1].forEach(file => {
+      currReportItems += `<li> <a href="${env.api_root_url + "/api/view-report/" + report[0] + "/" + file}" target="_blank">${file}</a> </li>`;
+    });
+
+    let currReport = report[0].split("_");
     row += `
       <tr>
         <td>${currReport[0].toUpperCase()}</td>
         <td>${currReport[1]}</td>
         <td>${toFinancialYear(currReport[2])}</td>
         <td>${CATEGORY[currReport[3]]}</td>
-        <td><a href="${env.api_root_url + "/api/view-report/" + report}" target="_blank">View Report</a></td>
+        <td>
+          <ul>
+            ${currReportItems}
+          <ul>
+        </td>
       </tr>
     `;
 
