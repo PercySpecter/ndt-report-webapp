@@ -108,6 +108,7 @@ const displayResult = (reports) => {
         <li>
           ${file} &nbsp
           <a href="${env.api_root_url + "/api/view-report/" + report[0] + "/" + file}" target="_blank">View</a> &nbsp
+          <a href="${env.api_root_url + "/api/download-report/" + report[0] + "/" + file}" target="_blank">Download</a> &nbsp
           <a onclick="deleteReportFile('${report[0]}', '${file}');" href="">Delete</a>
         </li>
       `;
