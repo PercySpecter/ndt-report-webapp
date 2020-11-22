@@ -1,3 +1,12 @@
+const openUploadWindow = () => {
+  const parentWindow = window.self;
+  let uploadWindow = window.open("upload.html", "_blank", "toolbar=no,scrollbars=yes,resizable=yes,top=300,left=500,width=500,height=500");
+  uploadWindow.addEventListener('unload', (e) => {
+    console.log("helllllllllooooooooo");
+    parentWindow.location.reload();
+  })
+};
+
 const toFinancialYear = (currYear) => {
   currYear = +currYear;
   let nextYear = (currYear + 1) % 100;
@@ -60,28 +69,34 @@ const initializeForm = () => {
   document.getElementById('category').addEventListener('change', (e) => {
     document.getElementById('query-button').click();
   });
+
+  document.getElementById('reset-button').addEventListener('click', (e) => {
+    location.reload();
+  });
 };
 
 const deleteReportFile = async (dir, file) => {
-  console.log(dir + " " + file);
-  try {
-    let queryResult = await fetch(`${env.api_root_url}/api/delete-report/${dir}/${file}`, {
-      method: 'DELETE',
-      headers: {
-        "Content-type": "application/json; charset=UTF-8"
-      }
-    });
-    result = await queryResult.json();
-    status = await queryResult.status;
-    console.log(result);
-
-  } catch (e) {
-    console.log(e);
+  let report = dir.split('_');
+  let msg = `Delete NDT Report ${file} for ${report[0].toUpperCase()}#${report[1]} ${env.category[report[3]]} for the financial year ${toFinancialYear(report[2])}?`;
+  if (confirm(msg)) {
+    try {
+      let queryResult = await fetch(`${env.api_root_url}/api/delete-report/${dir}/${file}`, {
+        method: 'DELETE',
+        headers: {
+          "Content-type": "application/json; charset=UTF-8"
+        }
+      });
+      result = await queryResult.json();
+      status = await queryResult.status;
+      console.log(result);
+  
+    } catch (e) {
+      console.log(e);
+    }
   }
 };
 
 const displayResult = (reports) => {
-  const CATEGORY = ["Survey", "Breakdown", "Preventive Maintenance"];
   let resTable = "";
   reports.forEach(report => {
     let row = "";
@@ -103,7 +118,7 @@ const displayResult = (reports) => {
         <td class="cell100 column1">${currReport[0].toUpperCase()}</td>
         <td class="cell100 column2">${currReport[1]}</td>
         <td class="cell100 column3">${toFinancialYear(currReport[2])}</td>
-        <td class="cell100 column4">${CATEGORY[currReport[3]]}</td>
+        <td class="cell100 column4">${env.category[currReport[3]]}</td>
         <td class="cell100 column5">
           <ul>
             ${currReportItems}
@@ -124,7 +139,6 @@ const displayResult = (reports) => {
 
 (async () => {
   initializeForm();
-
   document.getElementById('query-form').addEventListener('submit', async (e) => {
     e.preventDefault();
     try {
