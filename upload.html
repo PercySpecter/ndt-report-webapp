@@ -7,26 +7,29 @@
   </head>
   <body>
     <form id='upload-form' name='upload-form'  method="POST" enctype="multipart/form-data">
-      <select id="station" name="station">
-        <option value="-1" selected>Station...</option>
+      <select id="station" name="station" required>
         <option value="bbgs">BBGS</option>
         <option value="sgs">SGS</option>
       </select>
-      <select id="unit" name="unit">
-        <option value='-1' selected>Unit...</option>
+      <br>
+      <select id="unit" name="unit" required>
+
       </select>
-      <select id="year" name="year">
+      <br>
+      <select id="year" name="year" required>
         
       </select>
-      <select id="category" name="category">
-        <option value="-1" selected>Category...</option>
+      <br>
+      <select id="category" name="category" required>
         <option value="0">Survey</option>
         <option value="1">Breakdown</option>
         <option value="2">Preventive Maintenance</option>
       </select>
-      <input type="text" name="report_name" placeholder="Report Name">
-      <input type="file" name="report">
+      <br>
+      <input type="text" name="report_name" placeholder="Report Name" required>
+      <input type="file" name="report" required>
       <input type="hidden" id="callback" name="callback" value="">
+      <br>
       <input type="submit" value="Upload Report">
       </form>
   </body>

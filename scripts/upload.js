@@ -1,5 +1,5 @@
 const getYearOptions = (startYear, endYear) => {
-  let list = "<option value='-1' selected>Year...</option> \n";
+  let list = "";
   for (let currYear = startYear; currYear <= endYear; currYear++) {
     let nextYear = (currYear + 1) % 100;
     let suffix = "" + nextYear;
@@ -23,7 +23,7 @@ const getUnitOptions = (station) => {
     numberOfUnits = 0;
   }
 
-  let list = "<option value='-1' selected>Unit...</option> \n";
+  let list = "";
   for (let currUnit = 1; currUnit <= numberOfUnits; currUnit++) {
     let currOption = `<option value="${currUnit}">${currUnit}</options>`;
     list += currOption + "\n";
