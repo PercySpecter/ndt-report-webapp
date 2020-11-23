@@ -106,6 +106,8 @@ const deleteReportFile = async (dir, file) => {
     } catch (e) {
       console.log(e);
     }
+  } else {
+    document.getElementById('query-button').click();
   }
 };
 
