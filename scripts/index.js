@@ -79,7 +79,7 @@ const initializeForm = () => {
   });
 
   document.getElementById('reset-button').addEventListener('click', (e) => {
-    location.reload();
+    location.replace(env.webapp_root_url + "/index.html");
   });
 };
 
