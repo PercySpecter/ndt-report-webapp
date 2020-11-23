@@ -145,7 +145,7 @@ const displayResult = (reports) => {
   });
 
   if (reports.length == 0) {
-    resTable += `<td colspan="4" style="color: red;">No Reports Available for the selected criteria<td>`
+    resTable += `<td colspan="4" style="color: red; padding-left: 24px;">No Reports Available for the selected criteria<td>`
   }
 
   document.getElementById('result').innerHTML = resTable;

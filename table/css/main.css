@@ -41,7 +41,7 @@ a:focus {
 }
 
 a:hover {
-	text-decoration: none;
+	text-decoration: underline;
 }
 
 /* ------------------------------------ */
@@ -234,12 +234,12 @@ th, td {
 .table100.ver1 td {
   font-family: Lato-Regular;
   font-size: 15px;
-  color: #808080;
+  color: #464646;
   line-height: 1.4;
 }
 
 .table100.ver1 .table100-body tr:nth-child(even) {
-  background-color: #f8f6ff;
+  background-color: #d7d8ff;
 }
 
 /*---------------------------------------------*/

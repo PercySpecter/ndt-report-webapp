@@ -32,7 +32,7 @@ body {
 
 .navbar-link a {
   font-size:larger;
-  border-radius: 1rem;
+  border-radius: 2rem;
   display: block;
   color: white;
   text-align: center;
@@ -41,7 +41,7 @@ body {
 }
 
 .navbar-link a:hover {
-  background-color: #150578;
+  background-color: #150578 !important;
 }
 
 .form {
@@ -55,9 +55,19 @@ body {
   color: #0E0E52;
 }
 
+#search-prompt {
+  display: none;
+  font-weight: bold;
+  color: rgb(255, 183, 0);
+}
+
 #loading {
   margin-top: 16px;
   text-align: center;
   display: inline;
   width: 500px;
+}
+
+.form-button:hover {
+  background: #d7d8ff !important;
 }
