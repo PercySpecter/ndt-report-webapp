@@ -46,6 +46,7 @@ body {
 
 .form {
   margin-top: 1rem;
+  width: max-content;
 }
 
 .page-header {

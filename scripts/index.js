@@ -1,9 +1,11 @@
 const displayLoadingGif = () => {
   // document.getElementById('loading').style.display = "inline";
+  document.getElementById("search-prompt").style.display = "none";
   document.getElementById('result').innerHTML = `<img id="loading" class="loading" src="images/loading.gif" alt="Searching Report..."></img>`;
 };
 
 const openUploadWindow = () => {
+  document.getElementById("search-prompt").style.display = "inline";
   const parentWindow = window.self;
   const posVertical = Math.floor(window.innerHeight / 4);
   const posHorizontal = Math.floor(window.innerWidth / 4);
@@ -82,6 +84,7 @@ const initializeForm = () => {
 };
 
 const deleteReportFile = async (dir, file) => {
+  document.getElementById('result').innerHTML = `<img id="loading" class="loading" src="images/loading.gif" alt="Searching Report..."></img>`;
   let report = dir.split('_');
   let msg = `Delete NDT Report ${file} for ${report[0].toUpperCase()}#${report[1]} ${env.category[report[3]]} for the financial year ${toFinancialYear(report[2])}?`;
   if (confirm(msg)) {
@@ -95,6 +98,10 @@ const deleteReportFile = async (dir, file) => {
       result = await queryResult.json();
       status = await queryResult.status;
       console.log(result);
+
+      if (result.status == 0) {
+        document.getElementById('query-button').click();
+      }
   
     } catch (e) {
       console.log(e);
@@ -114,7 +121,7 @@ const displayResult = (reports) => {
           ${file} &nbsp
           <a href="${env.api_root_url + "/api/view-report/" + report[0] + "/" + file}" target="_blank">View</a> &nbsp
           <a href="${env.api_root_url + "/api/download-report/" + report[0] + "/" + file}" target="_blank">Download</a> &nbsp
-          <a onclick="deleteReportFile('${report[0]}', '${file}');" href="">Delete</a>
+          <a onclick="deleteReportFile('${report[0]}', '${file}');" href="#">Delete</a>
         </li>
       `;
     });
