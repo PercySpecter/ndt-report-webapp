@@ -32,7 +32,8 @@
       <input type="file" name="report" required>
       <input type="hidden" id="callback" name="callback" value="">
       <br>
-      <input class="form-button" type="submit" value="Upload Report">
+      <input class="form-button" onclick="displayLoadingGif();" type="submit" value="Upload Report">
+      <img id="loading" class="loading" src="images/uploading.gif" alt="Uploading File...">
       </form>
   </body>
   <script src="scripts/env.json"></script>

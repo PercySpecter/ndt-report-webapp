@@ -1,3 +1,9 @@
 * {
   margin-top: 8px;
 }
+
+#loading {
+  display: none;
+  height: 24px;
+  width: 30px;
+}

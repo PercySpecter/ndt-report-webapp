@@ -53,3 +53,10 @@ body {
   font-weight: bold;
   color: #0E0E52;
 }
+
+#loading {
+  margin-top: 16px;
+  text-align: center;
+  display: inline;
+  width: 500px;
+}

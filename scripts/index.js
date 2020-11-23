@@ -1,3 +1,8 @@
+const displayLoadingGif = () => {
+  // document.getElementById('loading').style.display = "inline";
+  document.getElementById('result').innerHTML = `<img id="loading" class="loading" src="images/loading.gif" alt="Searching Report..."></img>`;
+};
+
 const openUploadWindow = () => {
   const parentWindow = window.self;
   const posVertical = Math.floor(window.innerHeight / 4);

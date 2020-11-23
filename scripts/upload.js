@@ -1,3 +1,7 @@
+const displayLoadingGif = () => {
+  document.getElementById('loading').style.display = "inline";
+};
+
 const getYearOptions = (startYear, endYear) => {
   let list = "";
   for (let currYear = startYear; currYear <= endYear; currYear++) {
