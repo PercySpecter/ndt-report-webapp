@@ -93,6 +93,11 @@ body {
 
   position: absolute;
   z-index: 1;
+  
+  width: 120px;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
 }
 
 .file-info:hover .file-info-text {
