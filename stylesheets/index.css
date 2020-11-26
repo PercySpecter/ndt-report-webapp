@@ -71,3 +71,30 @@ body {
 .form-button:hover {
   background: #d7d8ff !important;
 }
+
+.form-button:hover {
+  background: #d7d8ff !important;
+}
+
+.file-info {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.file-info .file-info-text {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  position: absolute;
+  z-index: 1;
+}
+
+.file-info:hover .file-info-text {
+  visibility: visible;
+}
