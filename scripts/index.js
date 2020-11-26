@@ -120,10 +120,13 @@ const displayResult = (reports) => {
     report[1].forEach(file => {
       currReportItems += `
         <li>
-          ${file} &nbsp
-          <a href="${env.api_root_url + "/api/view-report/" + report[0] + "/" + file}" target="_blank">View</a> &nbsp
-          <a href="${env.api_root_url + "/api/download-report/" + report[0] + "/" + file}" target="_blank">Download</a> &nbsp
-          <a onclick="deleteReportFile('${report[0]}', '${file}');" href="#">Delete</a>
+          <span class="file-info">
+            ${[file[0]]}
+            <span class="file-info-text">Created On: ${file[1]}</span>
+          </span> &nbsp
+          <a href="${env.api_root_url + "/api/view-report/" + report[0] + "/" + file[0]}" target="_blank">View</a> &nbsp
+          <a href="${env.api_root_url + "/api/download-report/" + report[0] + "/" + file[0]}" target="_blank">Download</a> &nbsp
+          <a onclick="deleteReportFile('${report[0]}', '${file[0]}');" href="#">Delete</a>
         </li>
       `;
     });
