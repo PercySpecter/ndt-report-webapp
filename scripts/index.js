@@ -122,7 +122,7 @@ const displayResult = (reports) => {
         <li>
           <span class="file-info">
             ${[file[0]]}
-            <span class="file-info-text">Created On: ${file[1]}</span>
+            <span class="file-info-text">Uploaded On: ${file[1]}</span>
           </span> &nbsp
           <a href="${env.api_root_url + "/api/view-report/" + report[0] + "/" + file[0]}" target="_blank">View</a> &nbsp
           <a href="${env.api_root_url + "/api/download-report/" + report[0] + "/" + file[0]}" target="_blank">Download</a> &nbsp
