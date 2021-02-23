@@ -6,6 +6,7 @@
     > git clone https://github.com/PercySpecter/ndt-report-webapp
     > cd ndt-report-app
    ```
+   Alternatively, download the ZIP of the repository and unzip it
 2. Set environment in `scripts/env.json`
    ```
     env = {
